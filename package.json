@@ -1,0 +1,65 @@
+{
+  "name": "react-redux-sass-seed",
+  "version": "1.0.0",
+  "description": "Starter project for React/Redux with custom SCSS",
+  "main": "app/index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --history-api-fallback --colors --hot --content-base dist",
+    "postinstall": "webpack --config ./webpack.production.config.js --progress --colors",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-casey/react-redux-sass-seed.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "sass",
+    "seed"
+  ],
+  "author": "Matt Casey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matt-casey/react-redux-sass-seed/issues"
+  },
+  "homepage": "https://github.com/matt-casey/react-redux-sass-seed#readme",
+  "devDependencies": {
+    "autobind-decorator": "^1.3.3",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
+    "eslint-plugin-react": "^4.1.0",
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "connect-history-api-fallback": "^1.1.0",
+    "express-history-api-fallback": "^2.0.0",
+    "immutable": "^3.7.6",
+    "path": "^0.12.7",
+    "node-sass": "^3.4.2",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.0.0",
+    "react-router-redux": "^4.0.0",
+    "redux": "^3.3.1",
+    "redux-storage": "^3.0.0",
+    "redux-storage-engine-localstorage": "^1.0.0",
+    "redux-thunk": "^1.0.3",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14"
+  },
+  "engines": {
+    "node": ">=0.12.4"
+  }
+}
