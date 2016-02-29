@@ -4,7 +4,7 @@
   "description": "Starter project for React/Redux with custom SCSS",
   "main": "app/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack.development.config.js --devtool eval --progress --history-api-fallback --colors --hot --content-base dist",
+    "dev": "webpack-dev-server --config ./webpack.development.config.js --devtool eval --progress --history-api-fallback --colors --content-base dist",
     "start": "node server/app.production.js",
     "postinstall": "webpack --config ./webpack.production.config.js --progress --colors"
   },
