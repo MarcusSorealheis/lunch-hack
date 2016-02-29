@@ -2,25 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {} from '../actions';
 
-import Button from '../components/Button';
-import Form from '../components/Form';
-import SideBar from '../components/SideBar';
-
 class Household extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element.isRequired,
     location: React.PropTypes.object.isRequired,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+      React.PropTypes.arrayOf(React.PropTypes.element),
+    ]).isRequired,
   }
 
   render() {
     return (
       <div className="page-content">
-        <Form>
-          <Button linkTo="/contact" text="Next" />
-        </Form>
-        <SideBar>
-          SideBar
-        </SideBar>
+        {this.props.children}
       </div>
     );
   }

@@ -3,26 +3,26 @@ import classNames from 'classnames';
 import './_Header.scss';
 
 const pages = {
-  '/': {
+  'page-': {
     class: 'header--intro',
     name: '',
   },
-  '/applicant': {
+  'page-applicant': {
     step: 1,
     class: 'header--applicant',
     name: 'Applicant',
   },
-  '/household': {
+  'page-household': {
     step: 2,
     class: 'header--household',
     name: 'Household',
   },
-  '/contact': {
+  'page-contact': {
     step: 3,
     class: 'header--contact',
     name: 'Contact Information',
   },
-  '/review': {
+  'page-review': {
     step: 4,
     class: 'header--review',
     name: 'Sign and submit!',
@@ -35,7 +35,8 @@ export default class IndexPage extends React.Component {
   };
 
   render() {
-    const currentPage = pages[this.props.location.pathname];
+    console.log(this.props.location);
+    const currentPage = pages['page-' + this.props.location.pathname.split('/')[0]];
     const headerClasses = classNames(
       'header',
       currentPage.class,

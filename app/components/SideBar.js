@@ -7,7 +7,7 @@ export default class SideBar extends React.Component {
       React.PropTypes.string,
       React.PropTypes.element,
       React.PropTypes.arrayOf(React.PropTypes.element),
-    ]).isRequired,
+    ]),
   }
 
   render() {

@@ -48,7 +48,7 @@ class Contact extends React.Component {
             </div>
             <CheckBox label="No email available" />
           </div>
-          <Button linkTo="/household" text="Next" />
+          <Button linkTo="/review" text="Next" />
         </Form>
 
         <SideBar>
