@@ -2,6 +2,18 @@
 
 .sidebar {
   height: 100%;
-  padding: $layout__standard-spacing;
+  overflow: scroll;
   background: $color__background-two;
+  padding-top: $layout__standard-spacing;
+}
+
+.side-textblock {
+  padding: $layout__standard-spacing;
+}
+
+.accordian-textblock {
+  width: 100%;
+  padding: $layout__standard-spacing;
+  background: $color__sidebar-hover;
+  margin-bottom: 2px;
 }
