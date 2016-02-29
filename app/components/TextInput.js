@@ -3,7 +3,7 @@ import './_Button.scss';
 import { browserHistory } from 'react-router';
 import classNames from 'classnames';
 
-export default class Button extends React.Component {
+export default class TextInput extends React.Component {
   static propTypes = {
     text: React.PropTypes.string,
     linkTo: React.PropTypes.string,
