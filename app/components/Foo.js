@@ -6,7 +6,7 @@ export default class Foo extends React.Component {
     return (
       <div>
         <div> Foo </div>
-        <Link to="/">go Home!</Link>
+        <Link to="/">go Home</Link>
         <br />
         <Link to="/bar">go to Bar</Link>
       </div>

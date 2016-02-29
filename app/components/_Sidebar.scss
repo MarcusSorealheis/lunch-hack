@@ -1,0 +1,7 @@
+@import '../scss/utils/variables';
+
+.sidebar {
+  height: 100%;
+  padding: $layout__standard-spacing;
+  background: $color__background-two;
+}

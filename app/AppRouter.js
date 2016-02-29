@@ -4,10 +4,12 @@ import { store, load } from './store/configureStore';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import IndexPage from './containers/IndexPage.js';
-import Home from './components/Home.js';
-import Foo from './components/Foo.js';
-import Bar from './components/Bar.js';
+import PageWrapper from './containers/PageWrapper.js';
+import Intro from './components/Intro.js';
+import Applicant from './containers/Applicant.js';
+import Household from './containers/Household.js';
+import Contact from './containers/Contact.js';
+import Review from './containers/Review.js';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -22,10 +24,12 @@ export default class AppRouter extends React.Component {
     return (
       <Provider store={store}>
         <Router history={history}>
-          <Route path="/" component={IndexPage}>
-            <IndexRoute component={Home} />
-            <Route path="foo" component={Foo} />
-            <Route path="bar" component={Bar} />
+          <Route path="/" component={PageWrapper}>
+            <IndexRoute component={Intro} />
+            <Route path="applicant" component={Applicant} />
+            <Route path="household" component={Household} />
+            <Route path="contact" component={Contact} />
+            <Route path="review" component={Review} />
           </Route>
         </Router>
       </Provider>

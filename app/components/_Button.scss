@@ -1,0 +1,22 @@
+@import '../scss/base/reset';
+@import '../scss/utils/variables';
+
+.button{
+  @include form-reset-button;
+  text-align: center;
+  min-width: 125px;
+  padding: $layout__standard-spacing / 3;
+  border: solid 2px $black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  background: rgba(255,255,255,0.8);
+}
+
+.button:active{
+  background: $gray--lightest;
+}

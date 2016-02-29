@@ -12,15 +12,11 @@
 @import './layout/layout';
 
 html, body{
-  background-color: red;
   width: 100%;
   height: 100%;
+  background: $color__background-one;
 }
 
 [onclick], .u-clickable {
   cursor: pointer;
-}
-
-.App{
-  min-height: 100%;
 }

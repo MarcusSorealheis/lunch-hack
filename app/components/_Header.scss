@@ -1,0 +1,14 @@
+@import '../scss/utils/variables';
+
+.header {
+  padding: $layout__standard-spacing;
+  padding-top: $layout__large-spacing;
+  color: $white;
+  overflow: hidden;
+}
+
+.header--intro { background: $color__intro; }
+.header--applicant { background: $color__applicant; }
+.header--household { background: $color__household; }
+.header--contact { background: $color__contact; }
+.header--review { background: $color__review; }
