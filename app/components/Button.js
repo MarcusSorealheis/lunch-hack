@@ -8,12 +8,22 @@ export default class Home extends React.Component {
     text: React.PropTypes.string.isRequired,
     linkTo: React.PropTypes.string,
     handleClick: React.PropTypes.func,
-    type: React.PropTypes.string,
+    type: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.array,
+    ]),
   };
 
   static defaultProps = {
     type: 'primary',
   };
+
+  _getTypeClasses = () => {
+    const types = typeof this.props.type === 'string'
+      ? [this.props.type] : this.props.type;
+
+    return types.map(type => `button--${type}`);
+  }
 
   _handleClick = () => {
     if (this.props.linkTo) browserHistory.push(this.props.linkTo);
@@ -23,10 +33,7 @@ export default class Home extends React.Component {
   render() {
     const buttonClasses = classNames(
       'button',
-      {
-        'button--primary': this.props.type === 'primary',
-        'button--secondary': this.props.type === 'secondary',
-      },
+      ...this._getTypeClasses(),
     );
 
     return (
