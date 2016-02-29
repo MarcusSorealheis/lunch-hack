@@ -14,7 +14,22 @@ export default class HouseholdStep3 extends React.Component {
     return (
       <div>
         <Form>
-          HouseholdStep3
+          <h1>
+            Do any of the children in the household have income to report?
+          </h1>
+          <Button
+            className="u-align-left"
+            type="info"
+            text="Who qualifies as child income?"
+          />
+          <div className="form__group">
+            <Toggle/>
+          </div>
+          <p>Total child income (combined for all children in household):</p>
+          <div className="form__group">
+            <TextInput label="Total Earnings ($)"/>
+            <DropDown lbael="Monthly"/>
+          </div>
           <Button linkTo="/household/step-4" text="Next" />
         </Form>
 

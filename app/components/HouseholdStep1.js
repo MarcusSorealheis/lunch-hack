@@ -14,7 +14,23 @@ export default class HouseholdStep1 extends React.Component {
     return (
       <div>
         <Form>
-          HouseholdStep1
+          <h1>
+            Does your household currently participate in SNAP, TANF, or FDPIR?
+          </h1>
+          <Button
+            className="u-align-left"
+            type="info"
+            text="Who qualifies as a household member?"
+          />
+
+          <div className="form__body [ col col--1-1 ]">
+            <div className="form__group">
+              <Toggle/>
+            </div>
+            <div className="form__group">
+              <TextInput label="Case Number" type="short" width="100px" />
+            </div>
+          </div>
           <Button linkTo="/household/step-2" text="Next" />
         </Form>
 

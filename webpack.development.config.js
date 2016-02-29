@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const config = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    'webpack-dev-server/client?http://localhost:8080/*',
     path.resolve(__dirname, 'app/index.js'),
   ],
   output: {
