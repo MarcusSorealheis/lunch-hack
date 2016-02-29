@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import AppRouter from './AppRouter.js';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import './scss/index.scss';
 
-const rootInstance = render(<AppRouter />, document.body);
+// Needed for onTouchTap in material ui
+// Can go away when react 1.0 release
+// Check this repo:
+// https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
 
-if (module.hot) {
-  require('react-hot-loader/Injection').RootInstanceProvider.injectProvider({
-    // Help React Hot Loader figure out the root component instances on the page:
-    getRootInstances: () => [rootInstance],
-  });
-}
+const rootInstance = render(<AppRouter />, document.body);

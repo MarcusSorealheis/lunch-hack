@@ -1,47 +1,54 @@
 import React from 'react';
-import './_Button.scss';
-import { browserHistory } from 'react-router';
+import './_Toggle.scss';
+import { FlatButton } from 'material-ui/lib';
 import classNames from 'classnames';
 
 export default class Toggle extends React.Component {
   static propTypes = {
-    text: React.PropTypes.string,
-    linkTo: React.PropTypes.string,
+    label: React.PropTypes.string,
     className: React.PropTypes.string,
-    handleClick: React.PropTypes.func,
-    type: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.array,
-    ]),
+    width: React.PropTypes.string,
   };
 
-  static defaultProps = {
-    type: 'primary',
-  };
-
-  _getTypeClasses = () => {
-    const types = typeof this.props.type === 'string'
-      ? [this.props.type] : this.props.type;
-
-    return types.map(type => `button--${type}`);
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: false,
+    };
   }
 
-  _handleClick = () => {
-    if (this.props.linkTo) browserHistory.push(this.props.linkTo);
-    if (this.props.handleClick) this.props.handleClick();
+  _setValue = (value) => {
+    this.setState({ value });
   }
 
   render() {
-    const buttonClasses = classNames(
-      'button',
-      ...this._getTypeClasses(),
+    const primaryColor = '#54c4c6';
+    const secondaryColor = '#FAFAFA';
+    const classes = classNames(
+      'toggle-group',
       this.props.className,
     );
 
     return (
-      <button className={buttonClasses} onClick={this._handleClick}>
-        { this.props.text }
-      </button>
+      <div className={classes} style={{ width: this.props.width }}>
+        <p>{this.props.label}</p>
+        <FlatButton
+          label={'YES'}
+          onClick={() => this._setValue(true)}
+          backgroundColor={ this.state.value ? primaryColor : secondaryColor }
+          hoverColor={ this.state.value ? primaryColor : secondaryColor }
+          labelStyle={{ color: !this.state.value ? primaryColor : secondaryColor}}
+          style={{ width: '60px', height: '40px', border: 'solid 1px #E6E6E6', borderRadius: 0 }}
+        />
+        <FlatButton
+          label={'NO'}
+          onClick={() => this._setValue(false)}
+          backgroundColor={ !this.state.value ? primaryColor : secondaryColor }
+          hoverColor={ !this.state.value ? primaryColor : secondaryColor }
+          labelStyle={{ color: this.state.value ? primaryColor : secondaryColor}}
+          style={{ width: '60px', height: '40px', border: 'solid 1px #E6E6E6', borderRadius: 0 }}
+        />
+      </div>
     );
   }
 }

@@ -3,7 +3,11 @@ import './_Sidebar.scss';
 
 export default class SideBar extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element.isRequired,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+      React.PropTypes.arrayOf(React.PropTypes.element),
+    ]).isRequired,
   }
 
   render() {

@@ -1,14 +1,13 @@
 import React from 'react';
-import './_Button.scss';
-import { browserHistory } from 'react-router';
+import './_TextInput.scss';
+import { TextField } from 'material-ui/lib';
 import classNames from 'classnames';
 
 export default class TextInput extends React.Component {
   static propTypes = {
-    text: React.PropTypes.string,
-    linkTo: React.PropTypes.string,
+    label: React.PropTypes.string,
     className: React.PropTypes.string,
-    handleClick: React.PropTypes.func,
+    width: React.PropTypes.string,
     type: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.array,
@@ -23,25 +22,24 @@ export default class TextInput extends React.Component {
     const types = typeof this.props.type === 'string'
       ? [this.props.type] : this.props.type;
 
-    return types.map(type => `button--${type}`);
-  }
-
-  _handleClick = () => {
-    if (this.props.linkTo) browserHistory.push(this.props.linkTo);
-    if (this.props.handleClick) this.props.handleClick();
+    return types.map(type => `text-input--${type}`);
   }
 
   render() {
-    const buttonClasses = classNames(
-      'button',
+    const classes = classNames(
+      'text-input',
       ...this._getTypeClasses(),
       this.props.className,
     );
 
     return (
-      <button className={buttonClasses} onClick={this._handleClick}>
-        { this.props.text }
-      </button>
+      <div className={classes} style={{ width: this.props.width }}>
+        <TextField
+          floatingLabelText={this.props.label}
+          style={{ width: '100%', paddingLeft: '8px' }}
+          underlineStyle={{ bottom: 0, left: 0 }}
+        />
+      </div>
     );
   }
 }

@@ -1,0 +1,16 @@
+.text-input{
+  position: relative;
+  width: 240px;
+  float: left;
+  margin-right: 4px;
+}
+
+.text-input:before{
+  content: "";
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #FAFAFA;
+}

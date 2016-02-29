@@ -29,7 +29,7 @@ class Applicant extends React.Component {
           <div className="form__body [ col col--1-1 ]">
             <div className="form__group">
               <TextInput label="First Name" />
-              <TextInput label="MI" type="short" />
+              <TextInput label="MI" type="short" width="50px" />
               <TextInput label="Last Name" />
             </div>
             <div className="form__group">
