@@ -1,12 +1,24 @@
-@import '../scss/base/reset';
 @import '../scss/utils/variables';
 
 .button{
-  @include form-reset-button;
   padding: $layout__standard-spacing / 3;
   border: none;
   font-weight: 700;
   text-align: center;
+
+   &:hover{
+    cursor: pointer;
+  }
+}
+
+
+.button--short{
+  width: initial;
+}
+
+.button--primary{
+  background-color: $color__primary;
+  color: $color__background-three;
 
   &:hover{
     text-decoration: none;
@@ -17,39 +29,30 @@
   &:active{
     background: $gray--lightest;
   }
+}
 
-  &.button--short{
-    width: initial;
-  }
+.button--secondary{
+  background: none;
+  color: $color__primary;
+}
 
-  &.button--primary{
-    background-color: $color__primary;
-    color: $color__background-three;
-  }
+.button--info{
+  background: none;
+  color: $color__info;
+  padding-left: 0;
+  padding-right: 0;
+}
 
-  &.button--secondary{
-    background: none;
-    color: $color__primary;
-  }
-
-  &.button--info{
-    background: none;
-    color: $color__info;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  &.button--info-icon{
-    justify-content: center;
-    align: center;
-    background-color: $color__info;
-    border-color: rgba($color__info, 0.5);
-    border-width: 5px;
-    height: 20px;
-    width: 20px;
-    border-radius: 10px;
-    color: $color__background-three;
-    font-family: Georgia;
-    font-size: 16px;
-  }
+.button--info-icon{
+  justify-content: center;
+  align: center;
+  background-color: $color__info;
+  border-color: rgba($color__info, 0.5);
+  border-width: 5px;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  color: $color__background-three;
+  font-family: Georgia;
+  font-size: 16px;
 }
