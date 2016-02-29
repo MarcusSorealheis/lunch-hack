@@ -17,6 +17,12 @@ html, body{
   background: $color__background-one;
 }
 
+ul {
+  list-style-type: disc;
+  padding-left: $layout__standard-spacing;
+  margin-top: $layout__standard-spacing;
+}
+
 [onclick], .u-clickable {
   cursor: pointer;
 }
