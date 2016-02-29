@@ -4,7 +4,7 @@ import { routerReducer } from 'react-router-redux';
 // import partialReducer from './partialReducer';
 
 function reduxStorage(state = { loaded: false }, action) {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case LOAD:
       return { ...state, loaded: true };
