@@ -31,12 +31,11 @@ const pages = {
 
 export default class IndexPage extends React.Component {
   static propTypes = {
-    location: React.PropTypes.object.isRequired,
+    path: React.PropTypes.string.isRequired,
   };
 
   render() {
-    console.log(this.props.location);
-    const currentPage = pages['page-' + this.props.location.pathname.split('/')[0]];
+    const currentPage = pages['page-' + this.props.path.split('/')[1]];
     const headerClasses = classNames(
       'header',
       currentPage.class,

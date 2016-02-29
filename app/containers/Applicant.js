@@ -1,15 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { RouteHandler } from 'react-router';
 import {} from '../actions';
 
 class Applicant extends React.Component {
   static propTypes = {
+    children: React.PropTypes.element.isRequired,
     location: React.PropTypes.object.isRequired,
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
-      React.PropTypes.arrayOf(React.PropTypes.element),
-    ]).isRequired,
   }
 
   render() {
