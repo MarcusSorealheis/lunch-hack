@@ -13,8 +13,13 @@ $color__background-one: #F7F7F7;
 $color__background-two: #F2F2F2;
 $color__background-three: #FFFFFF;
 
+$color__primary: #54c4c6;
+$color__primary-hover: #3aa4a6;
+$color__info: #00c7fb;
+$color__dark-text: #736461;
+
 $color__intro: #FFC426;
 $color__applicant: #FFC426;
-$color__household: #54C4C6;
+$color__household: $color__primary;
 $color__contact: #ED715C;
 $color__review: #32AB68;
