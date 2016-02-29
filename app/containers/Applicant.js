@@ -1,18 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { RouteHandler } from 'react-router';
-import {} from '../actions';
+import { addChild, updateChild } from '../actions';
 
 class Applicant extends React.Component {
   static propTypes = {
     children: React.PropTypes.element.isRequired,
-    location: React.PropTypes.object.isRequired,
+    kids: React.PropTypes.array.isRequired,
+    addChild: React.PropTypes.func.isRequired,
+    updateChild: React.PropTypes.func.isRequired,
   }
 
   render() {
     return (
       <div className="page-content">
-        {this.props.children}
+        {
+          React.Children.map(this.props.children, child => {
+            return React.cloneElement(child, {
+              kids: this.props.kids,
+              addChild: this.props.addChild,
+              updateChild: this.props.updateChild,
+            });
+          })
+        }
       </div>
     );
   }
@@ -20,8 +29,8 @@ class Applicant extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    location: ownProps.location,
+    kids: state.children,
   };
 }
 
-export default connect(mapStateToProps, {})(Applicant);
+export default connect(mapStateToProps, { addChild, updateChild })(Applicant);

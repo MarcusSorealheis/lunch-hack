@@ -1,1 +1,2 @@
-export const ACTION_NAME = 'ACTION_NAME';
+export const ADD_CHILD = 'ADD_CHILD';
+export const SET_PROP = 'SET_PROP';

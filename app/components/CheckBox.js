@@ -8,6 +8,8 @@ export default class CheckBox extends React.Component {
     label: React.PropTypes.string,
     className: React.PropTypes.string,
     width: React.PropTypes.string,
+    value: React.PropTypes.bool,
+    onChange: React.PropTypes.func,
   };
 
   render() {
@@ -17,10 +19,17 @@ export default class CheckBox extends React.Component {
     );
 
     return (
-      <div className={classes} style={{ width: this.props.width }}>
-        <Checkbox label={this.props.label} style={{
-          color: '#ffffff',
-        }} />
+      <div
+        className={classes}
+        style={{ width: this.props.width }}
+        onClick={() => this.props.onChange(!this.props.value)}
+      >
+        <Checkbox
+          label={this.props.label}
+          style={{ color: '#ffffff' }}
+          checked={this.props.value}
+          onCheck={() => false}
+        />
       </div>
     );
   }

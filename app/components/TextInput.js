@@ -8,6 +8,8 @@ export default class TextInput extends React.Component {
     label: React.PropTypes.string,
     className: React.PropTypes.string,
     width: React.PropTypes.string,
+    value: React.PropTypes.string,
+    onChange: React.PropTypes.func,
     type: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.array,
@@ -38,6 +40,8 @@ export default class TextInput extends React.Component {
           floatingLabelText={this.props.label}
           style={{ width: '100%', paddingLeft: '8px' }}
           underlineStyle={{ bottom: 0, left: 0 }}
+          value={this.props.value}
+          onChange={event => this.props.onChange(event.target.value)}
         />
       </div>
     );

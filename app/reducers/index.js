@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 import { LOAD } from 'redux-storage';
 import { routerReducer } from 'react-router-redux';
-// import partialReducer from './partialReducer';
+import children from './children';
 
 function reduxStorage(state = { loaded: false }, action) {
-  console.log(action);
   switch (action.type) {
     case LOAD:
       return { ...state, loaded: true };
@@ -15,7 +14,7 @@ function reduxStorage(state = { loaded: false }, action) {
 
 const rootReducer = combineReducers({
   reduxStorage,
-  // partialReducer,
+  children,
   routing: routerReducer,
 });
 

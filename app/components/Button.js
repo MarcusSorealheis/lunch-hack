@@ -8,7 +8,7 @@ export default class Button extends React.Component {
     text: React.PropTypes.string,
     linkTo: React.PropTypes.string,
     className: React.PropTypes.string,
-    handleClick: React.PropTypes.func,
+    onClick: React.PropTypes.func,
     type: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.array,
@@ -28,7 +28,7 @@ export default class Button extends React.Component {
 
   _handleClick = () => {
     if (this.props.linkTo) browserHistory.push(this.props.linkTo);
-    if (this.props.handleClick) this.props.handleClick();
+    if (this.props.onClick) this.props.onClick();
   }
 
   render() {

@@ -1,5 +1,9 @@
 import * as types from '../constants/ActionTypes';
 
-// export function action(props) {
-//   return { type: types.ACTION_NAME, props };
-// }
+export function addChild() {
+  return { type: types.ADD_CHILD };
+}
+
+export function updateChild(index, update) {
+  return { type: types.SET_PROP, index, update };
+}
