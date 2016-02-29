@@ -1,4 +1,5 @@
 import React from 'react';
+import './_Form.scss';
 
 export default class Form extends React.Component {
   static propTypes = {
@@ -7,7 +8,7 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <div className="col col--2-3">
+      <div className="form [ col col--2-3 ]">
         {this.props.children}
       </div>
     );

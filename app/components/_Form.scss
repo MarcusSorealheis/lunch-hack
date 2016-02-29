@@ -1,0 +1,17 @@
+@import '../scss/utils/variables';
+
+.form{
+  padding: $layout__standard-spacing $layout__large-spacing;
+}
+
+.form__body {
+  padding: $layout__standard-spacing;
+  margin-bottom: $layout__standard-spacing;
+  background: $color__background-three;
+}
+
+.form__group{
+  width: 100%;
+  float: left;
+  margin-bottom: $layout__standard-spacing;
+}
