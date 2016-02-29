@@ -1,9 +1,13 @@
 @import '../scss/utils/variables';
+@import '../scss/base/reset__forms';
 
 .button{
+  @include form-reset-button;
   padding: $layout__standard-spacing / 3;
   border: none;
   font-weight: 700;
+  font-family: $font__base-family;
+  font-size: $font__base-size;
   text-align: center;
 
    &:hover{
@@ -19,6 +23,7 @@
 .button--primary{
   background-color: $color__primary;
   color: $color__background-three;
+  min-width: 200px;
 
   &:hover{
     text-decoration: none;
@@ -28,12 +33,19 @@
 
   &:active{
     background: $gray--lightest;
+    border: none;
   }
 }
 
 .button--secondary{
   background: none;
   color: $color__primary;
+
+  &:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: $color__primary-hover;
+  }
 }
 
 .button--info{
@@ -41,6 +53,12 @@
   color: $color__info;
   padding-left: 0;
   padding-right: 0;
+
+  &:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: #00b4e3;
+  }
 }
 
 .button--info-icon{

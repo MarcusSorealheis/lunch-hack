@@ -18,7 +18,9 @@ export default class CheckBox extends React.Component {
 
     return (
       <div className={classes} style={{ width: this.props.width }}>
-        <Checkbox label={this.props.label} />
+        <Checkbox label={this.props.label} style={{
+          color: '#ffffff',
+        }} />
       </div>
     );
   }

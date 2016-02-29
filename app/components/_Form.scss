@@ -8,6 +8,7 @@
   padding: $layout__standard-spacing;
   margin-bottom: $layout__standard-spacing;
   background: $color__background-three;
+  flex-wrap: nowrap;
 }
 
 .form__group{

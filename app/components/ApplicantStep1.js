@@ -36,7 +36,7 @@ export default class ApplicantStep1 extends React.Component {
             <div className="form__group">
               <p>Is this child any of the following? Select all that apply.</p>
               <Button
-                className="u-pull-left"
+                className="u-align-left"
                 type="info"
                 text="More information on these programs"
               />
@@ -80,8 +80,12 @@ export default class ApplicantStep1 extends React.Component {
               </div>
             </div>
           </div>
-          <Button type="secondary" text="Add additional child" />
-          <Button linkTo="/applicant/step-2" text="Next" />
+          <div>
+            <Button type="secondary" text="Add additional child" />
+          </div>
+          <div>
+            <Button linkTo="/applicant/step-2" text="Next" />
+          </div>
         </Form>
 
         <SideBar>
