@@ -24,7 +24,7 @@ class Applicant extends React.Component {
             List <span className="u-strong">all</span> child household members
           </h1>
           <p>This includes infants, children, and students (up to and including grade 12)</p>
-          <Button type="secondary" text="Who qualifies as a household member?" />
+          <Button className="u-align-left" type="info" text="Who qualifies as a household member?" />
 
           <div className="form__body [ col col--1-1 ]">
             <div className="form__group">
@@ -37,22 +37,46 @@ class Applicant extends React.Component {
             </div>
             <div className="form__group">
               <p>Is this child any of the following? Select all that apply.</p>
-              <Button className="u-pull-left" type="secondary" text="More information on these programs" />
+              <Button className="u-pull-left" type="info" text="More information on these programs" />
               <div className="col--1-1">
                 <div className="col col--1-2">
                   <CheckBox label="Foster" />
+                  <CheckBox label="Migrant" />
+                  <CheckBox label="Homeless" />
                 </div>
                 <div className="col col--1-2">
                   <CheckBox label="Head start" />
+                  <CheckBox label="Runaway" />
                 </div>
               </div>
             </div>
             <div className="form__group">
-              <DropDown label="Is this child a student?" values={[]} />
+              <h2>Children’s Racial & Ethnic Identities Question</h2>
+              <p>
+                We are required to ask for information about your children’s race and ethnicity. This information is important and helps to make sure we are fully serving our community. Responding to this section is optional and does not affect your children’s eligibility for free or reduced price meals.
+              </p>
+              <Button type="info" text="USDA Non-Discrimination Agreement" />
+            </div>
+            <div className="form__group">
+              <Toggle label="Is this child a Hispanic or Latino? (Optional)" />
+            </div>
+            <div className="form__group">
+              <p>Race: Select all that apply:</p>
+              <div className="col--1-1">
+                <div className="col col--1-2">
+                  <CheckBox label="American Indian or Alaskan Native" />
+                  <CheckBox label="Black or African American" />
+                  <CheckBox label="White" />
+                </div>
+                <div className="col col--1-2">
+                  <CheckBox label="Asian" />
+                  <CheckBox label="Native Hawaiin or Other Pacific Islander" />
+                </div>
+              </div>
             </div>
           </div>
-
-          <Button className="u-pull-left" linkTo="/household" text="Next" />
+          <Button type="secondary" text="Add additional child" />
+          <Button linkTo="/household" text="Next" />
         </Form>
 
         <SideBar>
