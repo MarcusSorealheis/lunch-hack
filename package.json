@@ -4,9 +4,9 @@
   "description": "Starter project for React/Redux with custom SCSS",
   "main": "app/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --history-api-fallback --colors --hot --content-base dist",
-    "postinstall": "webpack --config ./webpack.production.config.js --progress --colors",
-    "start": "node server/app.js"
+    "dev": "webpack-dev-server --config ./webpack.development.config.js --devtool eval --progress --history-api-fallback --colors --hot --content-base dist",
+    "start": "node server/app.production.js",
+    "postinstall": "webpack --config ./webpack.production.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,9 @@
     "eslint-config-airbnb": "^6.0.2",
     "eslint-plugin-react": "^4.1.0",
     "react-hot-loader": "^1.3.0",
-    "webpack-dev-server": "^1.14.1"
+    "sockjs": "^0.3.15",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.7.1"
   },
   "dependencies": {
     "babel-core": "^6.5.2",
