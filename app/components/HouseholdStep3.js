@@ -84,28 +84,10 @@ export default class HouseholdStep3 extends React.Component {
   )
 
   render() {
-    return (
-      <div className="page-content">
-        <Form>
-          <h1>
-            Do any of the children in the household have income to report?
-          </h1>
-          <Button
-            className="u-align-left"
-            type="info"
-            text="Who qualifies as child income?"
-            onClick={() => this.setState({ sidebar: this._renderPrograms })}
-          />
-          <div className="form__group">
-            <Toggle
-              value={this.props.household.childIncome.hasNone}
-              onChange={val => {
-                const newVal = this.props.household.childIncome;
-                newVal.hasNone = val;
-                this.props.updateHousehold({ newVal });
-              }}
-            />
-          </div>
+    let childIncomeInput;
+    if (!this.props.household.childIncome.hasNone) {
+      childIncomeInput = (
+        <div>
           <p>Total child income (combined for all children in household):</p>
           <div className="form__group">
             <TextInput
@@ -128,6 +110,32 @@ export default class HouseholdStep3 extends React.Component {
               }}
             />
           </div>
+        </div>
+      )
+    }
+    return (
+      <div className="page-content">
+        <Form>
+          <h1>
+            Do any of the children in the household have income to report?
+          </h1>
+          <Button
+            className="u-align-left"
+            type="info"
+            text="Who qualifies as child income?"
+            onClick={() => this.setState({ sidebar: this._renderPrograms })}
+          />
+          <div className="form__group">
+            <Toggle
+              value={!this.props.household.childIncome.hasNone}
+              onChange={val => {
+                const newVal = this.props.household.childIncome;
+                newVal.hasNone = !val;
+                this.props.updateHousehold({ newVal });
+              }}
+            />
+          </div>
+          {childIncomeInput}
           <Button linkTo="/household/step-4" text="Next" />
         </Form>
 
