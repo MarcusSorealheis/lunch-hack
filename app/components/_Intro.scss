@@ -5,3 +5,18 @@
   background: $color__intro;
   color: $white;
 }
+
+.terms-and-conditions{
+  position: fixed;
+  background: white;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.terms-and-conditions--hide{
+  visibility: hidden;
+  opacity: 0;
+}

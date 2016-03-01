@@ -14,25 +14,8 @@ class Household extends React.Component {
     updateHouseholdAdult: React.PropTypes.func,
     location: React.PropTypes.object.isRequired,
     household: React.PropTypes.object,
+    kids: React.PropTypes.object,
   }
-
-  //  _updateNestedValue = (kid, fieldName, key, val) => {
-  //   const field = this.props.household[kid][fieldName];
-  //   field[key] = val;
-  //   this.props.updateHousehold(kid, { field });
-  // }
-
-  // _updateValue = (kid, key, val) => {
-  //   const newVal = {};
-  //   newVal[key] = val;
-  //   this.props.updateHousehold(kid, newVal);
-  // }
-
-  // _updateAdult = (adult, key, val) => {
-  //   const newVal = {};
-  //   newVal[key] = val;
-  //   this.props.updateHouseholdAdult(adult, newVal);
-  // }
 
   render() {
     const childWithProps = React.cloneElement(this.props.children, {
@@ -41,6 +24,7 @@ class Household extends React.Component {
       updateHousehold: this.props.updateHousehold,
       updateHouseholdAdult: this.props.updateHouseholdAdult,
       household: this.props.household,
+      kids: this.props.kids,
     });
 
     return childWithProps;
@@ -50,6 +34,7 @@ class Household extends React.Component {
 function mapStateToProps(state) {
   return {
     household: state.household,
+    kids: state.children,
   };
 }
 
