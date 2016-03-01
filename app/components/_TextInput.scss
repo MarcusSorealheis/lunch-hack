@@ -10,7 +10,19 @@
   position: absolute;
   height: 60px;
   width: 100%;
+  top: 13px;
   bottom: 0;
   left: 0;
   background: #FAFAFA;
+}
+
+.text-input--override{
+  margin-top: -10px;
+  margin-left: -10px;
+  color: white;
+  opacity: 0;
+  position: absolute;
+  &:before{
+    display: none;
+  }
 }

@@ -10,9 +10,16 @@ import CheckBox from './CheckBox';
 import DropDown from './DropDown';
 
 export default class HouseholdStep1 extends React.Component {
+  static propTypes = {
+    addAdult: React.PropTypes.func,
+    updateHousehold: React.PropTypes.func,
+    updateHouseholdAdult: React.PropTypes.func,
+    household: React.PropTypes.object,
+  }
+
   render() {
     return (
-      <div>
+      <div className="page-content">
         <Form>
           <h1>
             Does your household currently participate in SNAP, TANF, or FDPIR?
@@ -23,10 +30,18 @@ export default class HouseholdStep1 extends React.Component {
             text="More about these programs"
           />
           <div className="form__group">
-            <Toggle/>
+            <Toggle
+              value={this.props.household.snap}
+              onChange={val => this.props.updateHousehold({ snap: val })}
+            />
           </div>
           <div className="form__group">
-            <TextInput label="Case Number" type="short" />
+            <TextInput
+              label="Case Number"
+              type="short"
+              value={this.props.household.caseNumber}
+              onChange={val => this.props.updateHousehold({ caseNumber: val })}
+            />
           </div>
           <div>
             <Button linkTo="/household/step-2" className="u-align-left" text="Next" />

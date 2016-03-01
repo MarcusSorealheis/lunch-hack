@@ -11,7 +11,7 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <div className="form [ col col--2-3 ]">
+      <div className="form [ col col--1-1 col--2-3@medium ]">
         {this.props.children}
       </div>
     );

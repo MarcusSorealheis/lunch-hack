@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {} from '../actions';
+import { updateContact } from '../actions';
 
 import Button from '../components/Button';
 import Form from '../components/Form';
@@ -13,8 +13,14 @@ import DropDown from '../components/DropDown';
 
 class Contact extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element.isRequired,
-    location: React.PropTypes.object.isRequired,
+    updateContact: React.PropTypes.func,
+    contactInfo: React.PropTypes.object,
+  }
+
+  _updateContactInfo = (type, prop, val) => {
+    const newVal = this.props.contactInfo[type];
+    newVal[prop] = val;
+    this.props.updateContact({ newVal });
   }
 
   render() {
@@ -27,25 +33,65 @@ class Contact extends React.Component {
             <div className="form__body [ col col--1-1 ]">
               <div className="form__group">
                 <p>Address</p>
-                <TextInput label="Address line 1" />
-                <TextInput label="Address line 2 (Optional)" />
-                <TextInput label="City" type="short" />
-                <DropDown label="State" />
-                <TextInput label="Zip code" type="short" />
+                <TextInput
+                  label="Address line 1"
+                  value={this.props.contactInfo.address.line1}
+                  onChange={val => this._updateContactInfo('address', 'line1', val)}
+                />
+                <TextInput
+                  label="Address line 2 (Optional)"
+                  value={this.props.contactInfo.address.line2}
+                  onChange={val => this._updateContactInfo('address', 'line2', val)}
+                />
+                <TextInput
+                  label="City" type="short"
+                  value={this.props.contactInfo.address.city}
+                  onChange={val => this._updateContactInfo('address', 'city', val)}
+                />
+                <DropDown label="State"
+                  value={this.props.contactInfo.address.state}
+                  optionValues={this.props.contactInfo.address.states}
+                  onChange={val => this._updateContactInfo('address', 'state', val)}
+                />
+                <TextInput
+                  label="Zip code" type="short"
+                  value={this.props.contactInfo.address.zipcode}
+                  onChange={val => this._updateContactInfo('address', 'zipcode', val)}
+                />
               </div>
-              <CheckBox label="No address available" />
+              <CheckBox
+                label="No address available"
+                value={this.props.contactInfo.address.hasNone}
+                onChange={val => this._updateContactInfo('address', 'hasNone', val)}
+              />
 
               <div className="form__group">
                 <p>Phone Number</p>
-                <TextInput label="Phone Number" />
+                <TextInput
+                  label="Phone Number"
+                  value={this.props.contactInfo.phone.number}
+                  onChange={val => this._updateContactInfo('phone', 'number', val)}
+                />
               </div>
-              <CheckBox label="No phone number available" />
+              <CheckBox
+                label="No phone number available"
+                value={this.props.contactInfo.phone.hasNone}
+                onChange={val => this._updateContactInfo('phone', 'hasNone', val)}
+              />
 
               <div className="form__group">
                 <p>Email Address</p>
-                <TextInput label="Email Address" />
+                <TextInput
+                  label="Email Address"
+                  value={this.props.contactInfo.email.address}
+                  onChange={val => this._updateContactInfo('email', 'address', val)}
+                />
               </div>
-            <CheckBox label="No email available" />
+            <CheckBox
+              label="No email available"
+              value={this.props.contactInfo.email.hasNone}
+              onChange={val => this._updateContactInfo('email', 'hasNone', val)}
+            />
             </div>
             <Button linkTo="/review" text="Next" />
           </div>
@@ -59,10 +105,10 @@ class Contact extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    location: ownProps.location,
+    contactInfo: state.contact,
   };
 }
 
-export default connect(mapStateToProps, {})(Contact);
+export default connect(mapStateToProps, { updateContact })(Contact);

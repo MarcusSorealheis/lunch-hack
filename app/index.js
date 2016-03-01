@@ -12,11 +12,11 @@ import makeRoutes from './Routes';
 const history = syncHistoryWithStore(browserHistory, store);
 const routes = makeRoutes(store);
 
-load(store)
-  .then((newState) => console.log('Loaded state:', newState))
-  .catch((err) => console.log('Failed to load previous state', err));
+// load(store)
+//   .then((newState) => console.log('Loaded state:', newState))
+//   .catch((err) => console.log('Failed to load previous state', err));
 
 // Needed for material-ui
 injectTapEventPlugin();
 
-render(<AppRoot history={history} routes={routes} store={store} />, document.body);
+render(<AppRoot history={history} routes={routes} store={store} />, document.getElementById('app'));

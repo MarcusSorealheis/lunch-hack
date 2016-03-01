@@ -10,9 +10,143 @@ import CheckBox from './CheckBox';
 import DropDown from './DropDown';
 
 export default class HouseholdStep2 extends React.Component {
+  static propTypes = {
+    addAdult: React.PropTypes.func,
+    updateHousehold: React.PropTypes.func,
+    updateHouseholdAdult: React.PropTypes.func,
+    household: React.PropTypes.object,
+  }
+
+  _renderAdult = (adult, index) => (
+    <div className="form__body [ col col--1-1 ]">
+      <div className="form__group">
+        <TextInput
+          label="First Name"
+          value={adult.name.first}
+          onChange={val => {
+            const newProp = adult.name;
+            newProp.first = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <TextInput
+          label="MI" type="short" width="50px" 
+          value={adult.name.middle}
+          onChange={val => {
+            const newProp = adult.name;
+            newProp.middle = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <TextInput
+          label="Last Name"
+          value={adult.name.last}
+          onChange={val => {
+            const newProp = adult.name;
+            newProp.last = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+      </div>
+      <div className="form__group">
+        <p>Earnings from work</p>
+        <CheckBox
+          label="No earnings from work to report" 
+          value={adult.earnings.hasNone}
+          onChange={val => {
+            const newProp = adult.earnings;
+            newProp.hasNone = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <TextInput
+          label="Total Earnings ($)" type="short"
+          value={adult.earnings.total}
+          onChange={val => {
+            const newProp = adult.earnings;
+            newProp.total = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <DropDown
+          label="Pay Period"
+          value={adult.earnings.type}
+          optionValues={adult.earnings.types}
+          onChange={val => {
+            const newProp = adult.earnings;
+            newProp.type = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+      </div>
+      <div className="form__group">
+        <p>Public assistance</p>
+        <CheckBox
+          label="No public assistance recieved"
+          value={adult.publicAssistance.hasNone}
+          onChange={val => {
+            const newProp = adult.publicAssistance;
+            newProp.hasNone = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <TextInput
+          label="Total Earnings ($)" type="short"
+          value={adult.publicAssistance.total}
+          onChange={val => {
+            const newProp = adult.publicAssistance;
+            newProp.total = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <DropDown
+          label="Pay Period"
+          value={adult.publicAssistance.type}
+          optionValues={adult.publicAssistance.types}
+          onChange={val => {
+            const newProp = adult.publicAssistance;
+            newProp.type = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+      </div>
+      <div className="form__group">
+        <p>All other income</p>
+        <CheckBox
+          label="No other income to report"
+          value={adult.otherIncome.hasNone}
+          onChange={val => {
+            const newProp = adult.otherIncome;
+            newProp.hasNone = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <TextInput
+          label="Total Earnings ($)" type="short"
+          value={adult.otherIncome.total}
+          onChange={val => {
+            const newProp = adult.otherIncome;
+            newProp.total = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+        <DropDown
+          label="Pay Period"
+          value={adult.otherIncome.type}
+          optionValues={adult.otherIncome.types}
+          onChange={val => {
+            const newProp = adult.otherIncome;
+            newProp.type = val;
+            this.props.updateHouseholdAdult(index, newProp);
+          }}
+        />
+      </div>
+    </div>
+  );
+
   render() {
     return (
-      <div>
+      <div className="page-content">
         <Form>
           <h1>
             List and report earnings for all adults (age 18+) in household, including those who do not have income.
@@ -24,34 +158,13 @@ export default class HouseholdStep2 extends React.Component {
               text="Who qualifies as a household member?"
             />
           </div>
-
-          <div className="form__body [ col col--1-1 ]">
-            <div className="form__group">
-              <TextInput label="First Name" />
-              <TextInput label="MI" type="short" width="50px" />
-              <TextInput label="Last Name" />
-            </div>
-            <div className="form__group">
-              <p>Earnings from work</p>
-              <CheckBox label="No earnings from work to report" />
-              <TextInput label="Total Earnings ($)" type="short"/>
-              <DropDown label="Monthly" />
-            </div>
-            <div className="form__group">
-              <p>Public assistance</p>
-              <CheckBox label="No public assistance recieved" />
-              <TextInput label="Total Earnings ($)" type="short"/>
-              <DropDown label="Monthly" />
-            </div>
-            <div className="form__group">
-              <p>All other income</p>
-              <CheckBox label="No other income to report" />
-              <TextInput label="Total Earnings ($)" type="short"/>
-              <DropDown label="Monthly" />
-            </div>
-          </div>          
+          {this.props.household.adults.map(this._renderAdult)}
           <div>
-            <Button type="secondary" text="Add additional adult" />
+            <Button
+              type="secondary"
+              text="Add additional adult"
+              onClick={this.props.addAdult}
+            />
           </div>
           <div>
             <Button linkTo="/household/step-3" text="Next" />

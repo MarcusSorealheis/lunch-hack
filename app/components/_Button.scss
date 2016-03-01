@@ -3,6 +3,7 @@
 
 .button{
   @include form-reset-button;
+  display: block;
   padding: $layout__standard-spacing / 3;
   border: none;
   font-weight: 600;

@@ -1,8 +1,37 @@
+@import '../scss/utils/variables';
+
 .page-wrapper {
   height: 100%;
   overflow: scroll;
 }
 
+.page-body {
+  position: absolute;
+  width: 100%;
+  top: $layout__large-spacing * 1.5;
+  bottom: 0;
+}
+
 .page-content {
-  display: inline;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pagechange-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.pagechange-enter.pagechange-enter-active {
+  opacity: 1;
+}
+
+.pagechange-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.pagechange-leave.pagechange-leave-active {
+  opacity: 0;
 }

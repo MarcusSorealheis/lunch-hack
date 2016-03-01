@@ -10,9 +10,16 @@ import CheckBox from './CheckBox';
 import DropDown from './DropDown';
 
 export default class HouseholdStep3 extends React.Component {
+  static propTypes = {
+    addAdult: React.PropTypes.func,
+    updateHousehold: React.PropTypes.func,
+    updateHouseholdAdult: React.PropTypes.func,
+    household: React.PropTypes.object,
+  }
+
   render() {
     return (
-      <div>
+      <div className="page-content">
         <Form>
           <h1>
             Do any of the children in the household have income to report?
@@ -23,18 +30,42 @@ export default class HouseholdStep3 extends React.Component {
             text="Who qualifies as child income?"
           />
           <div className="form__group">
-            <Toggle/>
+            <Toggle
+              value={this.props.household.childIncome.hasNone}
+              onChange={val => {
+                const newVal = this.props.household.childIncome;
+                newVal.hasNone = val;
+                this.props.updateHousehold({ newVal });
+              }}
+            />
           </div>
           <p>Total child income (combined for all children in household):</p>
           <div className="form__group">
-            <TextInput label="Total Earnings ($)"/>
-            <DropDown lbael="Monthly"/>
+            <TextInput
+              label="Total Earnings ($)"
+              value={this.props.household.childIncome.total}
+              onChange={val => {
+                const newVal = this.props.household.childIncome;
+                newVal.total = val;
+                this.props.updateHousehold({ newVal });
+              }}
+            />
+            <DropDown
+              label="Pay Period"
+              value={this.props.household.childIncome.type}
+              optionValues={this.props.household.childIncome.types}
+              onChange={val => {
+                const newVal = this.props.household.childIncome;
+                newVal.type = val;
+                this.props.updateHousehold(newVal);
+              }}
+            />
           </div>
           <Button linkTo="/household/step-4" text="Next" />
         </Form>
 
         <SideBar>
-                    <div className="side-textblock">
+          <div className="side-textblock">
             <h2>
               Did you know...
             </h2>

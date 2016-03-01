@@ -14,7 +14,9 @@ class PageWrapper extends React.Component {
     return (
       <div className="page-wrapper">
         <Header path={this.props.location.pathname} />
-        {this.props.children}
+        <div className="page-body">
+          {this.props.children}
+        </div>
       </div>
     );
   }
