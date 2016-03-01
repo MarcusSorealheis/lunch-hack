@@ -208,13 +208,10 @@ export default class ApplicantStep1 extends React.Component {
         />
       </div>
       <div className="form__group">
-        <p>Is this child any of the following? Select all that apply.</p>
-        <Button
-          className="u-align-left"
-          type="info"
-          text="More information on these programs"
-          onClick={() => this.setState({ sidebar: this._renderProgramInfo })}
-        />
+        <p>
+          Is this child any of the following? Select all that apply.
+          <Info onClick={() => this.setState({ sidebar: this._renderProgramInfo })} />
+        </p>
         <div className="col--1-1">
           <div className="col col--1-2">
             <CheckBox
