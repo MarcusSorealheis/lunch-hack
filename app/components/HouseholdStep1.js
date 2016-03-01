@@ -47,6 +47,7 @@ export default class HouseholdStep1 extends React.Component {
           className="u-align-left"
           type="info"
           text="Get more healthy tips"
+          linkTo="http://www.letsmove.gov/"
         />
       </div>
     </div>

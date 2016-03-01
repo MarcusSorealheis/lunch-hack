@@ -25,20 +25,6 @@ export default class Intro extends React.Component {
             <Button className="u-center" text="APPLY (5-10 MINS)" onClick={() => this.setState({ showTandC: true })} />
           </div>
         </div>
-        <div className="about">
-            <div className="col col--2-3 image" />
-            <div className="col col---3">
-              <h1>Apply in 4 simple steps</h1>
-              <p>Applying is easy. We just need information on:
-              <ul>
-                <li>The applicant(s)</li>
-                <li>Your household</li>
-                <li>Contact information</li>
-                <li>Review & Sign</li>
-              </ul>
-              </p>
-            </div>
-        </div>
       </div>
     );
   }

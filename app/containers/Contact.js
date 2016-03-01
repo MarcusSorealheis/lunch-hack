@@ -115,6 +115,25 @@ class Contact extends React.Component {
         </Form>
 
         <SideBar>
+         <div className="side-textblock">
+          <h2>
+            Did you know...
+          </h2>
+          <small>
+            Before heading to the grocery store, developing a “game plan” can help you get organized and save money. It also allows you to rethink your food choices and pick healthier options.
+            <br />
+            <br />
+            The USDA’s site has tools to help you list your weekly meals, make a grocery list, and find out how much you could save on groceries.
+          </small>
+          <div>
+            <Button
+              className="u-align-left"
+              type="info"
+              text="Get healthy and save"
+              linkTo="http://www.choosemyplate.gov/budget-create-grocery-game-plan"
+            />
+          </div>
+        </div>
         </SideBar>
       </div>
     );
