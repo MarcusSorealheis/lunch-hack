@@ -1,6 +1,5 @@
 import React from 'react';
 import './_CheckBox.scss';
-import { Checkbox } from 'material-ui/lib';
 import classNames from 'classnames';
 
 export default class CheckBox extends React.Component {
@@ -13,23 +12,26 @@ export default class CheckBox extends React.Component {
   };
 
   render() {
-    const classes = classNames(
-      'checkbox',
+    const containerClasses = classNames(
+      'checkbox-container',
       this.props.className,
+    );
+
+    const checkboxClasses = classNames(
+      'checkbox',
+      { 'checkbox--is-checked': this.props.value },
     );
 
     return (
       <div
-        className={classes}
+        className={containerClasses}
         style={{ width: this.props.width }}
         onClick={() => this.props.onChange(!this.props.value)}
       >
-        <Checkbox
-          label={this.props.label}
-          style={{ color: '#ffffff' }}
-          checked={this.props.value}
-          onCheck={() => false}
-        />
+        <p>
+          <span className={checkboxClasses}></span>
+          {this.props.label}
+        </p>
       </div>
     );
   }
