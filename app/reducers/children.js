@@ -1,7 +1,7 @@
 import {
   ADD_CHILD,
   SET_PROP,
-} from '../constants/ActionTypes';
+} from '../constants/actionTypes';
 
 const emptyChild = {
   name: {
