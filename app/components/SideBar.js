@@ -12,7 +12,7 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="sidebar [ col col--1-3 ] u-hide@small">
+      <div className="sidebar [ col col--1-3 ] u-hide@lt-large">
         {this.props.children}
       </div>
     );
