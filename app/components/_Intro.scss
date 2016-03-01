@@ -8,12 +8,30 @@
 
 .terms-and-conditions{
   position: fixed;
-  background: white;
+  background: $color__background-one;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
   opacity: 1;
+}
+
+.terms-scrollable{
+  background: white;
+  height: 50%;
+  width: 60%;
+  margin: $layout__standard-spacing;
+  padding: $layout__mid-spacing;
+  overflow: scroll;
+  color: $color__dark-text;
+  text-align: left;
+}
+
+.terms-text{
+  width: 60%;
+  margin-top: $layout__large-spacing;
+  color: $color__dark-text;
+  text-align: left;
 }
 
 .terms-and-conditions--hide{
