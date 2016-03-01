@@ -171,7 +171,6 @@ export default class ApplicantStep1 extends React.Component {
         </Form>
 
         <SideBar>
-          SideBar
         </SideBar>
       </div>
     );

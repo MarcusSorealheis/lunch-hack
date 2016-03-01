@@ -17,24 +17,6 @@ class Household extends React.Component {
     kids: React.PropTypes.object,
   }
 
-  //  _updateNestedValue = (kid, fieldName, key, val) => {
-  //   const field = this.props.household[kid][fieldName];
-  //   field[key] = val;
-  //   this.props.updateHousehold(kid, { field });
-  // }
-
-  // _updateValue = (kid, key, val) => {
-  //   const newVal = {};
-  //   newVal[key] = val;
-  //   this.props.updateHousehold(kid, newVal);
-  // }
-
-  // _updateAdult = (adult, key, val) => {
-  //   const newVal = {};
-  //   newVal[key] = val;
-  //   this.props.updateHouseholdAdult(adult, newVal);
-  // }
-
   render() {
     const childWithProps = React.cloneElement(this.props.children, {
       key: this.props.location.pathname,

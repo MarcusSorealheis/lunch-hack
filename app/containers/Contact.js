@@ -115,7 +115,6 @@ class Contact extends React.Component {
         </Form>
 
         <SideBar>
-          SideBar
         </SideBar>
       </div>
     );
