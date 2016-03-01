@@ -12,7 +12,7 @@ import DropDown from './DropDown';
 export default class HouseholdStepConfirmation extends React.Component {
   render() {
     return (
-      <div>
+      <div className="page-content">
         <Form>
           HouseholdStepConfirmation
           <Button linkTo="/contact" text="Confirm" />

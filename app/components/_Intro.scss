@@ -1,0 +1,7 @@
+@import '../scss/utils/variables';
+.intro-page{
+  height: 100%;
+  padding-top: $layout__large-spacing * 2;
+  background: $color__intro;
+  color: $white;
+}

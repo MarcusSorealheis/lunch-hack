@@ -1,8 +1,10 @@
 @import '../scss/utils/variables';
 
 .header {
-  padding: $layout__standard-spacing;
-  padding-top: $layout__large-spacing;
+  height: $layout__large-spacing * 1.5;
+  padding-top: $layout__large-spacing * 0.75;
+  padding-left: $layout__standard-spacing;
+  padding-right: $layout__standard-spacing;
   color: $white;
   overflow: hidden;
 }

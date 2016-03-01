@@ -1,6 +1,8 @@
 @import '../scss/utils/variables';
 
 .form{
+  height: 100%;
+  overflow: scroll;
   padding: $layout__standard-spacing $layout__large-spacing;
 }
 

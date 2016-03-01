@@ -10,17 +10,41 @@ import CheckBox from './CheckBox';
 import DropDown from './DropDown';
 
 export default class HouseholdStep4 extends React.Component {
+  static propTypes = {
+    addAdult: React.PropTypes.func,
+    updateHousehold: React.PropTypes.func,
+    updateHouseholdAdult: React.PropTypes.func,
+    household: React.PropTypes.object,
+  }
+
   render() {
     return (
-      <div>
+      <div className="page-content">
         <Form>
           <h1>
             Enter the last 4 digits of  the social security number (SSN) of an adult in the household
           </h1>
 
           <div className="form__group">
-            <TextInput label="XXXX" type="short" />
-            <CheckBox label="No social security number" />
+            <TextInput
+              label="XXXX"
+              type="short"
+              value={this.props.household.SSN.last4}
+              onChange={val => {
+                const newVal = this.props.household.SSN;
+                newVal.last4 = val;
+                this.props.updateHousehold({ newVal });
+              }}
+            />
+            <CheckBox
+              label="No social security number"
+              value={this.props.household.SSN.hasNone}
+              onChange={val => {
+                const newVal = this.props.household.SSN;
+                newVal.hasNone = val;
+                this.props.updateHousehold({ newVal });
+              }}
+            />
             <p>
               Please note: United States citizenship or immigration status is not a condition of eligibility for free and reduced price benefits.
             </p>

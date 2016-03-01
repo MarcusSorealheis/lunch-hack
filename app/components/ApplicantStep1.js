@@ -151,7 +151,7 @@ export default class ApplicantStep1 extends React.Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="page-content">
         <Form>
           <h1>
             List <span className="u-strong">all</span> child household members
