@@ -113,14 +113,19 @@ export default class HouseholdStep1 extends React.Component {
               onChange={val => this.props.updateHousehold({ snap: val })}
             />
           </div>
-          <div className="form__group">
-            <TextInput
-              label="Case Number"
-              type="short"
-              value={this.props.household.caseNumber}
-              onChange={val => this.props.updateHousehold({ caseNumber: val })}
-            />
-          </div>
+          {
+            this.props.household.snap
+              ? (
+                <div className="form__group">
+                  <TextInput
+                    label="Case Number"
+                    type="short"
+                    value={this.props.household.caseNumber}
+                    onChange={val => this.props.updateHousehold({ caseNumber: val })}
+                  />
+                </div>
+              ) : null
+          }
           <div>
             <Button linkTo="/household/step-2" className="u-align-left" text="Next" />
           </div>
