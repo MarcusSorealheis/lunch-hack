@@ -3,7 +3,7 @@ import {
   REMOVE_ADULT_FROM_HOUSEHOLD,
   PATCH_HOUSEHOLD,
   PATCH_HOUSEHOLD_ADULT,
-} from '../constants/ActionTypes';
+} from '../constants/actionTypes';
 
 const emptyAdult = {
   name: {

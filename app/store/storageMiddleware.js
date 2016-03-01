@@ -2,7 +2,7 @@ import * as storage from 'redux-storage';
 import createEngine from 'redux-storage-engine-localstorage';
 import debounce from 'redux-storage-decorator-debounce';
 import filter from 'redux-storage-decorator-filter';
-import {} from '../constants/ActionTypes';
+import {} from '../constants/actionTypes';
 
 const blackListedActions = [
   '@@router/LOCATION_CHANGE',
