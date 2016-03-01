@@ -15,7 +15,7 @@ export default class ChildrenConfirmation extends React.Component {
         </p>
         {
           this.props.kids.map((kid, index) => (
-            <div className="form__group">
+            <div className="form__group" key={kid.id}>
               <div className="col col--1-12">
                 <h2 className="u-strong">{index + 1}.</h2>
               </div>

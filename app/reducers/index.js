@@ -6,7 +6,6 @@ import contact from './contact';
 import household from './household';
 
 function reduxStorage(state = { loaded: false }, action) {
-  console.log(action);
   switch (action.type) {
     case LOAD:
       return { ...state, loaded: true };

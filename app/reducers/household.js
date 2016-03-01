@@ -44,7 +44,10 @@ const initialState = {
     types: ['weekly', 'bi-monthly', 'monthly', 'annually']
   },
   adults: [
-    emptyAdult
+    {
+      ...emptyAdult,
+      id: Math.floor(Math.random() * 10000),
+    },
   ],
 };
 
@@ -60,7 +63,10 @@ export default function household(state = initialState, action) {
         ...state,
         adults: [
           ...state.adults,
-          emptyAdult,
+          {
+            ...emptyAdult,
+            id: Math.floor(Math.random() * 10000),
+          },
         ],
       };
     case REMOVE_ADULT_FROM_HOUSEHOLD:

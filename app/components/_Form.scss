@@ -1,4 +1,5 @@
 @import '../scss/utils/variables';
+@import '../scss/utils/mixins';
 
 .form{
   height: 100%;
@@ -7,6 +8,7 @@
 }
 
 .form__body {
+  position: relative;
   padding: $layout__standard-spacing;
   margin-bottom: $layout__standard-spacing;
   background: $color__background-three;
@@ -17,4 +19,15 @@
   width: 100%;
   float: left;
   margin-bottom: $layout__standard-spacing;
+}
+
+.form__remove-button{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  &:after{
+    @include x-button;
+  }
 }
