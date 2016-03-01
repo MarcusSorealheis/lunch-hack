@@ -14,6 +14,7 @@ class Household extends React.Component {
     updateHouseholdAdult: React.PropTypes.func,
     location: React.PropTypes.object.isRequired,
     household: React.PropTypes.object,
+    kids: React.PropTypes.object,
   }
 
   //  _updateNestedValue = (kid, fieldName, key, val) => {
@@ -41,6 +42,7 @@ class Household extends React.Component {
       updateHousehold: this.props.updateHousehold,
       updateHouseholdAdult: this.props.updateHouseholdAdult,
       household: this.props.household,
+      kids: this.props.kids,
     });
 
     return childWithProps;
@@ -50,6 +52,7 @@ class Household extends React.Component {
 function mapStateToProps(state) {
   return {
     household: state.household,
+    kids: state.children,
   };
 }
 
