@@ -1,9 +1,9 @@
 @import '../scss/utils/variables';
 .intro-page{
-  height: 100%;
   padding-top: $layout__large-spacing * 2;
   background: $color__intro;
   color: $white;
+  height: 90%;
 }
 
 .terms-and-conditions{
@@ -37,4 +37,16 @@
 .terms-and-conditions--hide{
   visibility: hidden;
   opacity: 0;
+}
+
+.about{
+  background: $color__background-one;
+  width: 100%;
+  text-align: left;
+}
+
+.image{
+  height: 330px;
+  width: 330px;
+  background-color: red;
 }
