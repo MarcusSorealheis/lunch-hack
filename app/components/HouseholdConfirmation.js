@@ -27,7 +27,7 @@ export default class HouseholdConfirmation extends React.Component {
         } </p>
         {
           adults.map((adult, index) => (
-            <div className="form__group">
+            <div className="form__group" key={adult.id}>
               <div className="col col--1-12">
                 <h2 className="u-strong">{index + 1}.</h2>
               </div>

@@ -4,21 +4,22 @@ import {} from '../actions';
 
 import Button from '../components/Button';
 import Form from '../components/Form';
-import SideBar from '../components/SideBar';
+import ChildrenConfirmation from '../components/ChildrenConfirmation';
+import HouseholdConfirmation from '../components/HouseholdConfirmation';
 
 import TextInput from '../components/TextInput';
 
 class Review extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element.isRequired,
-    location: React.PropTypes.object.isRequired,
+    kids: React.PropTypes.array,
+    household: React.PropTypes.object,
   }
 
   render() {
     return (
       <div className="page-content">
         <Form>
-          <h1>
+          <h1 style={{ marginTop: '66px' }}>
             Sign and complete (must be adult in household)
           </h1>
           <small>
@@ -44,7 +45,16 @@ class Review extends React.Component {
               label="Last Name"
             />
           </div>
-          <Button linkTo="/" text="All done!" />
+          <div className="form__group" style={{ marginBottom: '99px' }}>
+            <Button linkTo="/" text="All done!" />
+          </div>
+          <div className="form__group">
+            <h1>
+              Review of your application
+            </h1>
+            <ChildrenConfirmation kids={this.props.kids} />
+            <HouseholdConfirmation kids={this.props.kids} household={this.props.household} />
+          </div>
         </Form>
       </div>
     );
@@ -53,7 +63,8 @@ class Review extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    location: ownProps.location,
+    kids: state.children,
+    household: state.household,
   };
 }
 

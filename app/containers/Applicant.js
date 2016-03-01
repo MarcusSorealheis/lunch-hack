@@ -17,7 +17,7 @@ class Applicant extends React.Component {
       key: this.props.location.pathname,
       kids: this.props.kids,
       addChild: this.props.addChild,
-      removeChild: this.props.addChild,
+      removeChild: this.props.removeChild,
       updateChild: this.props.updateChild,
     });
 

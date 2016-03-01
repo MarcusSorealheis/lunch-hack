@@ -16,7 +16,7 @@ class Household extends React.Component {
     updateHouseholdAdult: React.PropTypes.func,
     location: React.PropTypes.object.isRequired,
     household: React.PropTypes.object,
-    kids: React.PropTypes.object,
+    kids: React.PropTypes.array,
   }
 
   render() {

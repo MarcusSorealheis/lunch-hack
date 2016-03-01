@@ -27,14 +27,20 @@ const emptyChild = {
     'American Indian or Alaskan Native': false,
   },
 };
-const initialState = [emptyChild];
+const initialState = [{
+  ...emptyChild,
+  id: Math.floor(Math.random() * 10000),
+}];
 
 export default function children(state = initialState, action) {
   switch (action.type) {
     case ADD_CHILD:
       return [
         ...state,
-        emptyChild,
+        {
+          ...emptyChild,
+          id: Math.floor(Math.random() * 10000),
+        },
       ];
     case REMOVE_CHILD:
       return [

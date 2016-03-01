@@ -13,6 +13,7 @@ export default class ApplicantStep1 extends React.Component {
   static propTypes = {
     kids: React.PropTypes.array,
     addChild: React.PropTypes.func,
+    removeChild: React.PropTypes.func,
     updateChild: React.PropTypes.func,
   }
 
@@ -29,7 +30,12 @@ export default class ApplicantStep1 extends React.Component {
   }
 
   _renderKid = (kid, index) => (
-    <div className="form__body [ col col--1-1 ]" key={index}>
+    <div className="form__body [ col col--1-1 ]" key={kid.id}>
+      {
+        index > 0
+          ? <div className="form__remove-button" onClick={() => this.props.removeChild(index)}></div>
+          : null
+      }
       <div className="form__group">
         <TextInput
           label="First Name"
