@@ -12,6 +12,7 @@ class Household extends React.Component {
     addAdult: React.PropTypes.func,
     updateHousehold: React.PropTypes.func,
     updateHouseholdAdult: React.PropTypes.func,
+    location: React.PropTypes.object.isRequired,
     household: React.PropTypes.object,
   }
 
@@ -34,8 +35,8 @@ class Household extends React.Component {
   // }
 
   render() {
-    console.log(this.props);
     const childWithProps = React.cloneElement(this.props.children, {
+      key: this.props.location.pathname,
       addAdult: this.props.addAdult,
       updateHousehold: this.props.updateHousehold,
       updateHouseholdAdult: this.props.updateHouseholdAdult,

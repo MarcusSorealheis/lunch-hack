@@ -15,13 +15,13 @@ const pages = {
     step: 1,
     class: 'header--applicant',
     name: 'Applicant',
-    route: '/applicant',
+    route: '/applicant/step-1',
   },
   'page-household': {
     step: 2,
     class: 'header--household',
     name: 'Household',
-    route: '/household',
+    route: '/household/step-1',
   },
   'page-contact': {
     step: 3,
@@ -80,7 +80,7 @@ export default class IndexPage extends React.Component {
         <div className="u-pull-left">{currentStep}</div>
         <DropDown
           className="text-input--override"
-          value={currentPage.step}
+          value={`${currentPage.step}`}
           optionValues={this._getSteps()}
           onChange={val => this._goToPage(val)}
         />

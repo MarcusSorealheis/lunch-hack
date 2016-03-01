@@ -47,7 +47,7 @@ export default class DropDown extends React.Component {
         >
           {
             this.props.optionValues.map((option, index) => (
-              <MenuItem value={index} primaryText={option} />
+              <MenuItem value={index} primaryText={option} key={option + index} />
             ))
           }
         </SelectField>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Header from '../components/Header';
 import './_PageWrapper.scss';
 import {} from '../actions';
@@ -15,7 +16,15 @@ class PageWrapper extends React.Component {
       <div className="page-wrapper">
         <Header path={this.props.location.pathname} />
         <div className="page-body">
-          {this.props.children}
+          <ReactCSSTransitionGroup
+            transitionName="pagechange"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={500}
+          >
+            {React.cloneElement(this.props.children, {
+              key: this.props.location.pathname,
+            })}
+          </ReactCSSTransitionGroup>
         </div>
       </div>
     );

@@ -19,4 +19,4 @@ const routes = makeRoutes(store);
 // Needed for material-ui
 injectTapEventPlugin();
 
-render(<AppRoot history={history} routes={routes} store={store} />, document.body);
+render(<AppRoot history={history} routes={routes} store={store} />, document.getElementById('app'));

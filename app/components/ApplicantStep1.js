@@ -29,7 +29,7 @@ export default class ApplicantStep1 extends React.Component {
   }
 
   _renderKid = (kid, index) => (
-    <div className="form__body [ col col--1-1 ]">
+    <div className="form__body [ col col--1-1 ]" key={index}>
       <div className="form__group">
         <TextInput
           label="First Name"
@@ -149,7 +149,6 @@ export default class ApplicantStep1 extends React.Component {
   );
 
   render() {
-    console.log(this.props);
     return (
       <div className="page-content">
         <Form>

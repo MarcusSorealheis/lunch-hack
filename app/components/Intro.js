@@ -13,7 +13,7 @@ export default class Intro extends React.Component {
               free and reduced price meals <br />
               <br />
             </span>
-            <Button className="u-center" linkTo="/applicant" text="APPLY (5-10 MINS)" />
+            <Button className="u-center" linkTo="/applicant/step-1" text="APPLY (5-10 MINS)" />
           </div>
         </div>
       </div>

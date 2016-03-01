@@ -17,3 +17,21 @@
   height: 100%;
   overflow: hidden;
 }
+
+.pagechange-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.pagechange-enter.pagechange-enter-active {
+  opacity: 1;
+}
+
+.pagechange-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.pagechange-leave.pagechange-leave-active {
+  opacity: 0;
+}

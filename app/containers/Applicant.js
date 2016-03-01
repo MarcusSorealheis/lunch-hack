@@ -6,12 +6,14 @@ class Applicant extends React.Component {
   static propTypes = {
     children: React.PropTypes.element.isRequired,
     kids: React.PropTypes.array.isRequired,
+    location: React.PropTypes.object.isRequired,
     addChild: React.PropTypes.func.isRequired,
     updateChild: React.PropTypes.func.isRequired,
   }
 
   render() {
     const childWithProps = React.cloneElement(this.props.children, {
+      key: this.props.location.pathname,
       kids: this.props.kids,
       addChild: this.props.addChild,
       updateChild: this.props.updateChild,
