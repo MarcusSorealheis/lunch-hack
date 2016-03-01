@@ -102,12 +102,12 @@ export default class ApplicantStep1 extends React.Component {
       </div>
       <div className="form__group">
         <h2>Children’s Racial & Ethnic Identities Questions</h2>
-        <p>
+        <small>
           We are required to ask for information about your children’s race and ethnicity.
           This information is important and helps to make sure we are fully serving our
           community. Responding to this section is optional and does not affect your
           children’s eligibility for free or reduced price meals.
-        </p>
+        </small>
         <Button type="info" text="USDA Non-Discrimination Agreement" />
       </div>
       <div className="form__group">
