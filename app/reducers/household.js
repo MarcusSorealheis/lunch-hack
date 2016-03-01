@@ -1,8 +1,9 @@
 import {
   ADD_ADULT_TO_HOUSEHOLD,
+  REMOVE_ADULT_FROM_HOUSEHOLD,
   PATCH_HOUSEHOLD,
   PATCH_HOUSEHOLD_ADULT,
-} from '../constants/ActionTypes';
+} from '../constants/actionTypes';
 
 const emptyAdult = {
   name: {
@@ -49,6 +50,11 @@ const initialState = {
 
 export default function household(state = initialState, action) {
   switch (action.type) {
+    case PATCH_HOUSEHOLD:
+      return {
+        ...state,
+        ...action.patch,
+      };
     case ADD_ADULT_TO_HOUSEHOLD:
       return {
         ...state,
@@ -57,10 +63,13 @@ export default function household(state = initialState, action) {
           emptyAdult,
         ],
       };
-    case PATCH_HOUSEHOLD:
+    case REMOVE_ADULT_FROM_HOUSEHOLD:
       return {
         ...state,
-        ...action.patch,
+        adults: [
+          ...state.adults.slice(0, action.index),
+          ...state.adults.slice(action.index + 1),
+        ]
       };
     case PATCH_HOUSEHOLD_ADULT:
       return {

@@ -1,7 +1,8 @@
 import {
   ADD_CHILD,
+  REMOVE_CHILD,
   SET_PROP,
-} from '../constants/ActionTypes';
+} from '../constants/actionTypes';
 
 const emptyChild = {
   name: {
@@ -34,6 +35,11 @@ export default function children(state = initialState, action) {
       return [
         ...state,
         emptyChild,
+      ];
+    case REMOVE_CHILD:
+      return [
+        ...state.slice(0, action.index),
+        ...state.slice(action.index + 1),
       ];
     case SET_PROP:
       return [

@@ -1,6 +1,6 @@
 import {
   PATCH_CONTACT,
-} from '../constants/ActionTypes';
+} from '../constants/actionTypes';
 
 const STATES = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
