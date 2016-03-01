@@ -17,6 +17,41 @@ export default class HouseholdStep4 extends React.Component {
     household: React.PropTypes.object,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebar: this._renderIntro,
+    };
+  }
+
+  _renderIntro = () => (
+    <div className="side-textblock">
+      <h2>
+        Did you know...
+      </h2>
+      <small>
+        Children and families tend to consume more of the foods that they have easy access to. Keep fruits and vegetables within reach and you’re more likely to make healthy choices.
+        <br />
+        Easy tips:
+        <ul>
+          <li><small>
+            Replace a candy dish with a fruit bowl
+          </small></li>
+          <li><small>
+            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
+          </small></li>
+        </ul>
+      </small>
+      <div>
+        <Button
+          className="u-align-left"
+          type="info"
+          text="Get more healthy tips"
+        />
+      </div>
+    </div>
+  )
+
   render() {
     return (
       <div className="page-content">
@@ -55,33 +90,7 @@ export default class HouseholdStep4 extends React.Component {
         </Form>
 
         <SideBar>
-          <div className="side-textblock">
-            <h2>
-              Did you know...
-            </h2>
-            <small>
-              Children and families tend to consume more of the foods that they have easy access to. Keep fruits and vegetables within reach and you’re more likely to make healthy choices.
-              <br />
-              Easy tips:
-              <ul>
-                <li><small>
-                  Replace a candy dish with a fruit bowl
-                </small></li>
-                <li><small>
-                  Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
-                </small></li>
-              </ul>
-            </small>
-            <div>
-              <Button
-                className="u-align-left"
-                type="info"
-                text="Get more healthy tips"
-              />
-            </div>
-          </div>
-
-          {/* FUN FACT ENDS RAWR CATTT :D MEOW MEOW MEOW */}
+          {this.state.sidebar()}
         </SideBar>
       </div>
     );

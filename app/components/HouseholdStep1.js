@@ -94,7 +94,6 @@ export default class HouseholdStep1 extends React.Component {
   )
 
   render() {
-    const sidebar = this.state.sidebar();
     return (
       <div className="page-content">
         <Form>
@@ -127,7 +126,7 @@ export default class HouseholdStep1 extends React.Component {
         </Form>
 
         <SideBar>
-          {sidebar}
+          {this.state.sidebar()}
         </SideBar>
       </div>
     );
