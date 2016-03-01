@@ -7,10 +7,12 @@ import SideBar from './SideBar';
 import TextInput from './TextInput';
 import CheckBox from './CheckBox';
 import DropDown from './DropDown';
+import Info from './Info';
 
 export default class HouseholdStep2 extends React.Component {
   static propTypes = {
     addAdult: React.PropTypes.func,
+    removeAdult: React.PropTypes.func,
     updateHousehold: React.PropTypes.func,
     updateHouseholdAdult: React.PropTypes.func,
     household: React.PropTypes.object,
@@ -60,6 +62,7 @@ export default class HouseholdStep2 extends React.Component {
       </div>
     </div>
   )
+
   _renderPrograms = () => (
     <div>
       <div className="side-textblock">
@@ -139,7 +142,12 @@ export default class HouseholdStep2 extends React.Component {
   )
 
   _renderAdult = (adult, index) => (
-    <div className="form__body [ col col--1-1 ]">
+    <div className="form__body [ col col--1-1 ]" key={adult.id}>
+      {
+        index > 0
+          ? <div className="form__remove-button" onClick={() => this.props.removeAdult(index)}></div>
+          : null
+      }
       <div className="form__group">
         <TextInput
           label="First Name"
@@ -170,7 +178,7 @@ export default class HouseholdStep2 extends React.Component {
         />
       </div>
       <div className="form__group">
-        <p>Earnings from work</p>
+        <p>Earnings from work <Info onClick={() => this.setState({ sidebar: this._renderPrograms })} /></p>
         <CheckBox
           label="No earnings from work to report"
           value={adult.earnings.hasNone}
@@ -207,7 +215,7 @@ export default class HouseholdStep2 extends React.Component {
         }
       </div>
       <div className="form__group">
-        <p>Public assistance</p>
+        <p>Public assistance <Info onClick={() => this.setState({ sidebar: this._renderPrograms })} /></p>
         <CheckBox
           label="No public assistance recieved"
           value={adult.publicAssistance.hasNone}
@@ -244,7 +252,7 @@ export default class HouseholdStep2 extends React.Component {
           }
       </div>
       <div className="form__group">
-        <p>All other income</p>
+        <p>All other income <Info onClick={() => this.setState({ sidebar: this._renderPrograms })} /></p>
         <CheckBox
           label="No other income to report"
           value={adult.otherIncome.hasNone}

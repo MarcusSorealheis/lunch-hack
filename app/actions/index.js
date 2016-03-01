@@ -4,8 +4,8 @@ export function addChild() {
   return { type: types.ADD_CHILD };
 }
 
-export function removeChild() {
-  return { type: types.REMOVE_CHILD };
+export function removeChild(index) {
+  return { type: types.REMOVE_CHILD, index };
 }
 
 export function updateChild(index, update) {
@@ -16,8 +16,8 @@ export function addAdult() {
   return { type: types.ADD_ADULT_TO_HOUSEHOLD };
 }
 
-export function removeAdult() {
-  return { type: types.REMOVE_ADULT_FROM_HOUSEHOLD };
+export function removeAdult(index) {
+  return { type: types.REMOVE_ADULT_FROM_HOUSEHOLD, index };
 }
 
 export function updateHousehold(patch) {

@@ -28,7 +28,11 @@ export default class Button extends React.Component {
   }
 
   _handleClick = () => {
-    if (this.props.linkTo) browserHistory.push(this.props.linkTo);
+    if (this.props.linkTo && this.props.linkTo.indexOf('http') > -1) {
+      window.open(this.props.linkTo);
+    } else if (this.props.linkTo) {
+      browserHistory.push(this.props.linkTo);
+    }
     if (this.props.onClick) this.props.onClick();
   }
 

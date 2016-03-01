@@ -10,7 +10,6 @@ const blackListedActions = [
 ];
 let engine = createEngine('seed');
 engine = filter(engine, [
-  'reduxStorage',
   'children',
   'contact',
   'household',
