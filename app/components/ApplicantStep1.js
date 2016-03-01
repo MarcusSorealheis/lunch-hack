@@ -176,23 +176,17 @@ export default class ApplicantStep1 extends React.Component {
               Did you know...
             </h2>
             <small>
-              Children and families tend to consume more of the foods that they have easy access to. Keep fruits and vegetables within reach and you’re more likely to make healthy choices.
+              Have you heard of the Presidential Active Lifestyle Award (PALA+) challenge? It lets adopt  simple ways to increase your daily activity and improve your eating habits. You’ll see a healthier you in just six weeks.
               <br />
-              Easy tips:
-              <ul>
-                <li><small>
-                  Replace a candy dish with a fruit bowl
-                </small></li>
-                <li><small>
-                  Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
-                </small></li>
-              </ul>
+              <br />
+              PALA+ has teamed up with the Biggest Loser.  In a special two-part episode of the series, Mrs. Obama announced that the contestants would travel to the White House and participate in a first-ever White House/Biggest Loser workout.
             </small>
             <div>
               <Button
                 className="u-align-left"
                 type="info"
-                text="Get more healthy tips"
+                text="Learn More"
+                linkTo="https://www.presidentschallenge.org/challenge/active/"
               />
             </div>
             
