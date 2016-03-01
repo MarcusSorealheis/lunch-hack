@@ -170,25 +170,31 @@ export default class HouseholdStep2 extends React.Component {
             this.props.updateHouseholdAdult(index, newProp);
           }}
         />
-        <TextInput
-          label="Total Earnings ($)" type="short"
-          value={adult.earnings.total}
-          onChange={val => {
-            const newProp = adult.earnings;
-            newProp.total = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
-        <DropDown
-          label="Pay Period"
-          value={adult.earnings.type}
-          optionValues={adult.earnings.types}
-          onChange={val => {
-            const newProp = adult.earnings;
-            newProp.type = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
+        {
+          adult.earnings.hasNone 
+            ? null
+            : (<div>
+              <TextInput
+                label="Total Earnings ($)" type="short"
+                value={adult.earnings.total}
+                onChange={val => {
+                  const newProp = adult.earnings;
+                  newProp.total = val;
+                  this.props.updateHouseholdAdult(index, newProp);
+                }}
+              />
+              <DropDown
+                label="Pay Period"
+                value={adult.earnings.type}
+                optionValues={adult.earnings.types}
+                onChange={val => {
+                  const newProp = adult.earnings;
+                  newProp.type = val;
+                  this.props.updateHouseholdAdult(index, newProp);
+                }}
+              />
+            </div>)
+        }
       </div>
       <div className="form__group">
         <p>Public assistance</p>
@@ -201,25 +207,31 @@ export default class HouseholdStep2 extends React.Component {
             this.props.updateHouseholdAdult(index, newProp);
           }}
         />
-        <TextInput
-          label="Total Earnings ($)" type="short"
-          value={adult.publicAssistance.total}
-          onChange={val => {
-            const newProp = adult.publicAssistance;
-            newProp.total = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
-        <DropDown
-          label="Pay Period"
-          value={adult.publicAssistance.type}
-          optionValues={adult.publicAssistance.types}
-          onChange={val => {
-            const newProp = adult.publicAssistance;
-            newProp.type = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
+        {
+          adult.publicAssistance.hasNone 
+            ? null
+            : (<div>
+                <TextInput
+                  label="Total Earnings ($)" type="short"
+                  value={adult.publicAssistance.total}
+                  onChange={val => {
+                    const newProp = adult.publicAssistance;
+                    newProp.total = val;
+                    this.props.updateHouseholdAdult(index, newProp);
+                  }}
+                />
+                <DropDown
+                  label="Pay Period"
+                  value={adult.publicAssistance.type}
+                  optionValues={adult.publicAssistance.types}
+                  onChange={val => {
+                    const newProp = adult.publicAssistance;
+                    newProp.type = val;
+                    this.props.updateHouseholdAdult(index, newProp);
+                  }}
+                />
+              </div>)
+          }
       </div>
       <div className="form__group">
         <p>All other income</p>
@@ -232,25 +244,31 @@ export default class HouseholdStep2 extends React.Component {
             this.props.updateHouseholdAdult(index, newProp);
           }}
         />
-        <TextInput
-          label="Total Earnings ($)" type="short"
-          value={adult.otherIncome.total}
-          onChange={val => {
-            const newProp = adult.otherIncome;
-            newProp.total = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
-        <DropDown
-          label="Pay Period"
-          value={adult.otherIncome.type}
-          optionValues={adult.otherIncome.types}
-          onChange={val => {
-            const newProp = adult.otherIncome;
-            newProp.type = val;
-            this.props.updateHouseholdAdult(index, newProp);
-          }}
-        />
+        {
+          adult.otherIncome.hasNone 
+            ? null
+            : (<div>
+              <TextInput
+                label="Total Earnings ($)" type="short"
+                value={adult.otherIncome.total}
+                onChange={val => {
+                  const newProp = adult.otherIncome;
+                  newProp.total = val;
+                  this.props.updateHouseholdAdult(index, newProp);
+                }}
+              />
+              <DropDown
+                label="Pay Period"
+                value={adult.otherIncome.type}
+                optionValues={adult.otherIncome.types}
+                onChange={val => {
+                  const newProp = adult.otherIncome;
+                  newProp.type = val;
+                  this.props.updateHouseholdAdult(index, newProp);
+                }}
+              />
+            </div>)
+          }
       </div>
     </div>
   );

@@ -61,16 +61,6 @@ export default class HouseholdStep4 extends React.Component {
           </h1>
 
           <div className="form__group">
-            <TextInput
-              label="XXXX"
-              type="short"
-              value={this.props.household.SSN.last4}
-              onChange={val => {
-                const newVal = this.props.household.SSN;
-                newVal.last4 = val;
-                this.props.updateHousehold({ newVal });
-              }}
-            />
             <CheckBox
               label="No social security number"
               value={this.props.household.SSN.hasNone}
@@ -80,6 +70,22 @@ export default class HouseholdStep4 extends React.Component {
                 this.props.updateHousehold({ newVal });
               }}
             />
+            {
+              this.props.household.SSN.hasNone
+                ? null
+                : (
+                  <TextInput
+                    label="XXXX"
+                    type="short"
+                    value={this.props.household.SSN.last4}
+                    onChange={val => {
+                      const newVal = this.props.household.SSN;
+                      newVal.last4 = val;
+                      this.props.updateHousehold({ newVal });
+                    }}
+                  />
+                )
+              }
             <p>
               Please note: United States citizenship or immigration status is not a condition of eligibility for free and reduced price benefits.
             </p>
