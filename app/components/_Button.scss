@@ -16,7 +16,6 @@
   }
 }
 
-
 .button--short{
   width: initial;
 }
@@ -77,4 +76,13 @@
   color: $color__background-three;
   font-family: Georgia;
   font-size: 16px;
+}
+
+.button[disabled] {
+  background-color: gray;
+
+  &:hover {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }

@@ -38,7 +38,7 @@ export default class HouseholdStep1 extends React.Component {
             Replace a candy dish with a fruit bowl
           </small></li>
           <li><small>
-            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
+            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight
           </small></li>
         </ul>
       </small>
@@ -65,7 +65,7 @@ export default class HouseholdStep1 extends React.Component {
           Other assistance programs
         </h2>
         <small>
-          Receipt of benefits by or participation of any household member from certain Assistance Programs conveys eligibility for free school meals to all children in the household. 
+          Receipt of benefits by or participation of any household member from certain Assistance Programs conveys eligibility for free school meals to all children in the household.
           <br />
           When certifying eligibility based on participation in these programs, determinations must be made with appropriate case numbers submitted on the application.
           <br />
@@ -75,7 +75,7 @@ export default class HouseholdStep1 extends React.Component {
       <div className="accordian-textblock">
         <h2>SNAP</h2>
         <small>
-          SNAP is the Supplemental Nutrition Assistance Program (formerly known as food stamps). SNAP is the largest program in the domestic hunger safety net, serving millions of individuals annually. 
+          SNAP is the Supplemental Nutrition Assistance Program (formerly known as food stamps). SNAP is the largest program in the domestic hunger safety net, serving millions of individuals annually.
         </small>
       </div>
       <div className="accordian-textblock">

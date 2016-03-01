@@ -1,5 +1,8 @@
 module.exports = {
-  entry: './app/index.js',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    './app/index.js',
+  ],
   output: {
     path: `${__dirname}/dist`,
     filename: 'bundle.js',

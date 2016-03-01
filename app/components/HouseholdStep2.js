@@ -23,6 +23,16 @@ export default class HouseholdStep2 extends React.Component {
     };
   }
 
+  _validateData = () => {
+    for (const adult of this.props.household.adults) {
+      if (!adult.name.first || !adult.name.last) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   _renderIntro = () => (
     <div className="side-textblock">
       <h2>
@@ -37,7 +47,7 @@ export default class HouseholdStep2 extends React.Component {
             Replace a candy dish with a fruit bowl
           </small></li>
           <li><small>
-            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
+            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight
           </small></li>
         </ul>
       </small>
@@ -72,7 +82,7 @@ export default class HouseholdStep2 extends React.Component {
           Other assistance programs
         </h2>
         <small>
-          Receipt of benefits by or participation of any household member from certain Assistance Programs conveys eligibility for free school meals to all children in the household. 
+          Receipt of benefits by or participation of any household member from certain Assistance Programs conveys eligibility for free school meals to all children in the household.
           <br />
           When certifying eligibility based on participation in these programs, determinations must be made with appropriate case numbers submitted on the application.
           <br />
@@ -141,7 +151,7 @@ export default class HouseholdStep2 extends React.Component {
           }}
         />
         <TextInput
-          label="MI" type="short" width="50px" 
+          label="MI" type="short" width="50px"
           value={adult.name.middle}
           onChange={val => {
             const newProp = adult.name;
@@ -162,7 +172,7 @@ export default class HouseholdStep2 extends React.Component {
       <div className="form__group">
         <p>Earnings from work</p>
         <CheckBox
-          label="No earnings from work to report" 
+          label="No earnings from work to report"
           value={adult.earnings.hasNone}
           onChange={val => {
             const newProp = adult.earnings;
@@ -171,7 +181,7 @@ export default class HouseholdStep2 extends React.Component {
           }}
         />
         {
-          adult.earnings.hasNone 
+          adult.earnings.hasNone
             ? null
             : (<div>
               <TextInput
@@ -208,7 +218,7 @@ export default class HouseholdStep2 extends React.Component {
           }}
         />
         {
-          adult.publicAssistance.hasNone 
+          adult.publicAssistance.hasNone
             ? null
             : (<div>
                 <TextInput
@@ -245,7 +255,7 @@ export default class HouseholdStep2 extends React.Component {
           }}
         />
         {
-          adult.otherIncome.hasNone 
+          adult.otherIncome.hasNone
             ? null
             : (<div>
               <TextInput
@@ -297,7 +307,7 @@ export default class HouseholdStep2 extends React.Component {
             />
           </div>
           <div>
-            <Button linkTo="/household/step-3" text="Next" />
+            <Button disabled={!this._validateData()} linkTo="/household/step-3" text="Next" />
           </div>
         </Form>
 
