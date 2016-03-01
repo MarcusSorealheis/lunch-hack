@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addChild, updateChild } from '../actions';
+import { addChild, removeChild, updateChild } from '../actions';
 
 class Applicant extends React.Component {
   static propTypes = {
@@ -8,6 +8,7 @@ class Applicant extends React.Component {
     kids: React.PropTypes.array.isRequired,
     location: React.PropTypes.object.isRequired,
     addChild: React.PropTypes.func.isRequired,
+    removeChild: React.PropTypes.func.isRequired,
     updateChild: React.PropTypes.func.isRequired,
   }
 
@@ -16,6 +17,7 @@ class Applicant extends React.Component {
       key: this.props.location.pathname,
       kids: this.props.kids,
       addChild: this.props.addChild,
+      removeChild: this.props.addChild,
       updateChild: this.props.updateChild,
     });
 
@@ -29,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { addChild, updateChild })(Applicant);
+export default connect(mapStateToProps, { addChild, removeChild, updateChild })(Applicant);
