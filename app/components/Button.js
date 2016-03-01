@@ -8,6 +8,7 @@ export default class Button extends React.Component {
     text: React.PropTypes.string,
     linkTo: React.PropTypes.string,
     className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     type: React.PropTypes.oneOfType([
       React.PropTypes.string,
@@ -43,7 +44,7 @@ export default class Button extends React.Component {
     );
 
     return (
-      <button className={buttonClasses} onClick={this._handleClick}>
+      <button className={buttonClasses} disabled={this.props.disabled} onClick={this._handleClick}>
         { this.props.text }
       </button>
     );

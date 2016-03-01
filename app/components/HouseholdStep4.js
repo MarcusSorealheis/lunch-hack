@@ -1,13 +1,10 @@
 import React from 'react';
 
 import Button from './Button';
+import CheckBox from './CheckBox';
 import Form from './Form';
 import SideBar from './SideBar';
-
 import TextInput from './TextInput';
-import Toggle from './Toggle';
-import CheckBox from './CheckBox';
-import DropDown from './DropDown';
 
 export default class HouseholdStep4 extends React.Component {
   static propTypes = {
@@ -24,6 +21,11 @@ export default class HouseholdStep4 extends React.Component {
     };
   }
 
+  _validateData = () => {
+    return this.props.household.SSN.hasNone ||
+      (this.props.household.SSN.last4 >= 1000 && this.props.household.SSN.last4 <= 9999);
+  }
+
   _renderIntro = () => (
     <div className="side-textblock">
       <h2>
@@ -38,7 +40,7 @@ export default class HouseholdStep4 extends React.Component {
             Replace a candy dish with a fruit bowl
           </small></li>
           <li><small>
-            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight 
+            Store tempting foods like cookies, chips,or ice crea out of immediate eyesight
           </small></li>
         </ul>
       </small>
@@ -92,7 +94,7 @@ export default class HouseholdStep4 extends React.Component {
             </p>
           </div>
           <div>
-            <Button linkTo="/household/step-5" text="Next" />
+            <Button disabled={!this._validateData()} linkTo="/household/step-5" text="Next" />
           </div>
         </Form>
 

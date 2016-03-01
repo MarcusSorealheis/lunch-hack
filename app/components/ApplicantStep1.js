@@ -20,6 +20,7 @@ export default class ApplicantStep1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      optOut: false,
       sidebar: this._renderIntro,
     };
   }
@@ -71,7 +72,7 @@ export default class ApplicantStep1 extends React.Component {
           Foster Child
         </h2>
         <small>
-          A child who is formally placed by a court or a State child welfare agency. 
+          A child who is formally placed by a court or a State child welfare agency.
         </small>
       </div>
       <div className="accordian-textblock">
@@ -141,7 +142,7 @@ export default class ApplicantStep1 extends React.Component {
         <br />
         1400 Independence Avenue, SW
         <br />
-        Washington, D.C. 20250-9410; 
+        Washington, D.C. 20250-9410;
         <br />
         (2) Fax: (202) 690-7442; or
         <br />
@@ -162,6 +163,16 @@ export default class ApplicantStep1 extends React.Component {
     const newVal = {};
     newVal[key] = val;
     this.props.updateChild(kid, newVal);
+  }
+
+  _validateData = () => {
+    for (const kid of this.props.kids) {
+      if (!kid.name.first || !kid.name.last) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   _renderKid = (kid, index) => (
@@ -247,46 +258,57 @@ export default class ApplicantStep1 extends React.Component {
         <Button type="info" text="USDA Non-Discrimination Agreement" onClick={() => this.setState({ sidebar: this._renderNonDiscrimination })} />
       </div>
       <div className="form__group">
-        <Toggle
-          label="Is this child a Hispanic or Latino? (Optional)"
-          value={kid.hispanic}
-          onChange={val => this._updateValue(index, 'hispanic', val)}
+        <CheckBox
+          label="I do not wish to provide this information"
+          value={this.state.optOut}
+          onChange={value => this.setState({ optOut: value })}
         />
       </div>
-      <div className="form__group">
-        <p>Race: Select all that apply:</p>
-        <div className="col--1-1">
-          <div className="col col--1-2">
-            <CheckBox
-              label="American Indian or Alaskan Native"
-              value={kid.ethnicity['American Indian or Alaskan Native']}
-              onChange={val => this._updateNestedValue(index, 'ethnicity', 'American Indian or Alaskan Native', val)}
-            />
-            <CheckBox
-              label="Black or African American"
-              value={kid.ethnicity['Black or African American']}
-              onChange={val => this._updateNestedValue(index, 'ethnicity', 'Black or African American', val)}
-            />
-            <CheckBox
-              label="White"
-              value={kid.ethnicity['White']}
-              onChange={val => this._updateNestedValue(index, 'ethnicity', 'White', val)}
+      {this.state.optOut ? null : (
+        <div>
+          <div className="form__group">
+            <Toggle
+              label="Is this child a Hispanic or Latino? (Optional)"
+              value={kid.hispanic}
+              onChange={val => this._updateValue(index, 'hispanic', val)}
             />
           </div>
-          <div className="col col--1-2">
-            <CheckBox
-              label="Asian"
-              value={kid.ethnicity['Asian']}
-              onChange={val => this._updateNestedValue(index, 'ethnicity', 'Asian', val)}
-            />
-            <CheckBox
-              label="Native Hawaiin or Other Pacific Islander"
-              value={kid.ethnicity['Native Hawaiin or Other Pacific Islander']}
-              onChange={val => this._updateNestedValue(index, 'ethnicity', 'Native Hawaiin or Other Pacific Islander', val)}
-            />
+          <div className="form__group">
+            <p>Race: Select all that apply:</p>
+            <div className="col--1-1">
+              <div className="col col--1-2">
+                <CheckBox
+                  label="American Indian or Alaskan Native"
+                  value={kid.ethnicity['American Indian or Alaskan Native']}
+                  onChange={val => this._updateNestedValue(index, 'ethnicity', 'American Indian or Alaskan Native', val)}
+                />
+                <CheckBox
+                  label="Black or African American"
+                  value={kid.ethnicity['Black or African American']}
+                  onChange={val => this._updateNestedValue(index, 'ethnicity', 'Black or African American', val)}
+                />
+                <CheckBox
+                  label="White"
+                  value={kid.ethnicity['White']}
+                  onChange={val => this._updateNestedValue(index, 'ethnicity', 'White', val)}
+                />
+              </div>
+              <div className="col col--1-2">
+                <CheckBox
+                  label="Asian"
+                  value={kid.ethnicity['Asian']}
+                  onChange={val => this._updateNestedValue(index, 'ethnicity', 'Asian', val)}
+                />
+                <CheckBox
+                  label="Native Hawaiin or Other Pacific Islander"
+                  value={kid.ethnicity['Native Hawaiin or Other Pacific Islander']}
+                  onChange={val => this._updateNestedValue(index, 'ethnicity', 'Native Hawaiin or Other Pacific Islander', val)}
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 
@@ -309,13 +331,10 @@ export default class ApplicantStep1 extends React.Component {
             <Button type="secondary" text="Add additional child" onClick={this.props.addChild} />
           </div>
           <div>
-            <Button linkTo="/applicant/step-2" text="Next" />
+            <Button disabled={!this._validateData()} linkTo="/applicant/step-2" text="Next" />
           </div>
         </Form>
-
-        <SideBar>
-          {this.state.sidebar()}
-        </SideBar>
+        <SideBar>{this.state.sidebar()}</SideBar>
       </div>
     );
   }
