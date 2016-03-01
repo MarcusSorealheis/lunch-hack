@@ -7,7 +7,7 @@ import SideBar from './SideBar';
 import TextInput from './TextInput';
 import Toggle from './Toggle';
 import CheckBox from './CheckBox';
-import DropDown from './DropDown';
+import Info from './Info';
 
 export default class ApplicantStep1 extends React.Component {
   static propTypes = {
