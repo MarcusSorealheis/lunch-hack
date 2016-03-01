@@ -24,6 +24,7 @@ export default class HouseholdStep1 extends React.Component {
           <h1>
             Does your household currently participate in SNAP, TANF, or FDPIR?
           </h1>
+
           <Button
             className="u-align-left"
             type="info"
